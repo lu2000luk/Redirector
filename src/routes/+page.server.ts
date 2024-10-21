@@ -7,8 +7,15 @@ export async function load({ url }) {
     // Force it to be lowercase
     // Remove its queries
     // Remove the www.
+    // Remove port
 
     let address = url.toString().replace(/(https:\/\/|http:\/\/)/, "").toLowerCase().split("?")[0].replace("www.", "");
+    if (address.includes(":")) {
+        let temp_address = address.split(":")[0];
+        // Add back the part after the port
+        temp_address += address.split(":")[1].split("/")[0];
+        address = temp_address;
+    }
 
     let data = await kv.get<string>(address);
     if (!data) {
