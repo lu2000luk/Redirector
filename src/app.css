@@ -6,3 +6,46 @@ html, body {
     width: 100%;
     height: 100%;
 }
+
+html {
+    background: #333;
+}
+
+body {
+    background: url("../../bg.svg") no-repeat center center fixed;
+    background-size: 100%;
+    animation: backgroundZoom 20s;
+}
+
+@keyframes backgroundZoom {
+    0% {
+        background-size: 100%;
+    }
+    100% {
+        background-size: 1000%;
+    }
+}
+
+.card {
+    background: url("../../cardbg.svg") no-repeat center center;
+    background-size: 250%;
+    animation: backgroundMove 20s infinite;
+}
+
+@keyframes backgroundMove {
+    0% {
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 100% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 0% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
