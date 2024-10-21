@@ -19,8 +19,8 @@ export async function load({ url }) {
 
     let data = await kv.get<string>(address);
     if (!data) {
-        // Try without the path
-        address = address.split("/")[0];
+        // Try hostname
+        address = url.hostname.toString()
         let data = await kv.get<string>(address);
         if (!data) {
             return {
