@@ -8,8 +8,8 @@
     } else {
         let redirectEndpoint = data.redirect;
         if (!redirectEndpoint) {
-            if (!browser) {redirectEndpoint = ""; return;}
-            redirectEndpoint = window.location.href;
+            redirectEndpoint = "";
+            if (browser) {redirectEndpoint = window.location.href;}
             loadingState = "Error!";
         } else {
             loadingState = "Redirecting...";
