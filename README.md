@@ -1,38 +1,28 @@
-# create-svelte
+# Redirector
+A redirect system for static websites. Using Vercel KV Database and SvelteKit
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+## How to use
+1. Fork the repo
+2. Go to https://vercel.com/
+3. Click New > Project
+4. Select the repo
+5. Customize the installation how you want (I personally use `bun install` as the install command)
+6. Click Create project
+7. Wait for Vercel to deploy
+8. Go to the Storage tab
+9. Click on Create next to KV
+10. Choose your DB name and region
+11. In the Project Settings link your domains and subdomains
+12. Set up your redirects
 
-## Creating a project
+## How to setup your redirects
+Go to your KV dashboard.
+In the CLI window use the following commands:
+SET [DOMAIN + PATH] [REDIRECT LINK] To create a new redirect (The domain dosent i include www., the port, the queries or the protocol. Example: example.com example.com/ example.com/lol)
+GET [DOMAIN + PATH]:analytics To get the number of redirect hits
 
-If you're seeing this, you've probably already done this step. Congrats!
+The app will automatically update in real time to your changes.
+If you set a redirect for a domain without the final slash it will use it as a default for every redirect in the whole domain (not subdomains) that has not been created
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Troubleshoot
+If the KV dosent connect to the app when you create it go to the deployments tab and in the 3 dots next to the deployment name click "Redeploy"
