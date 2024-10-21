@@ -2,7 +2,7 @@ import "dotenv/config";
 import { kv } from "@vercel/kv";
 
 export async function load({ url }) {
-
+    let data = "";
     // Remove the https / http part from the url
     // Force it to be lowercase
     // Remove its queries
@@ -17,11 +17,11 @@ export async function load({ url }) {
         address = temp_address;
     }
 
-    let data = await kv.get<string>(address);
+    data = await kv.get<string>(address);
     if (!data) {
         // Try hostname
         address = url.hostname.toString()
-        let data = await kv.get<string>(address);
+        data = await kv.get<string>(address);
         if (!data) {
             return {
                 status: 404,
