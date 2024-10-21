@@ -1,5 +1,24 @@
-<script>
+<script lang="ts">
+    import { browser } from "$app/environment";
+    export let data;
     let loadingState = "Loading...";
+
+    if (data.error && browser) {
+        loadingState = data.error;
+    } else {
+        let redirectEndpoint = data.redirect;
+        if (!redirectEndpoint) {
+            redirectEndpoint = "https://linktr.ee/lu2000luk";
+        }
+
+        loadingState = "Redirecting...";
+
+        if (browser) {
+            window.location.href = redirectEndpoint;
+        }
+    }
+
+
 </script>
 
 <svelte:head>
