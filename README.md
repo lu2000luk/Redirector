@@ -1,5 +1,5 @@
 # Redirector
-A redirect system for static websites. Using Vercel KV Database and SvelteKit
+A dynamic redirect system for static websites. Using Vercel KV Database and SvelteKit
 
 ## How to use
 1. Fork the repo
