@@ -8,13 +8,15 @@
     } else {
         let redirectEndpoint = data.redirect;
         if (!redirectEndpoint) {
-            redirectEndpoint = "https://linktr.ee/lu2000luk";
-        }
+            if (!browser) {redirectEndpoint = ""; return;}
+            redirectEndpoint = window.location.href;
+            loadingState = "Error!";
+        } else {
+            loadingState = "Redirecting...";
 
-        loadingState = "Redirecting...";
-
-        if (browser) {
-            window.location.href = redirectEndpoint;
+            if (browser) {
+                window.location.href = redirectEndpoint;
+            }
         }
     }
 
