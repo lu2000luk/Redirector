@@ -35,3 +35,4 @@ This was made as a fun project
 - Delays
 - Embeds support
 - Client Cashing
+- Protected redirects
