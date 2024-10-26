@@ -27,6 +27,11 @@ If you set a redirect for a domain without the final slash it will use it as a d
 ## Troubleshoot
 If the KV dosent connect to the app when you create it go to the deployments tab and in the 3 dots next to the deployment name click "Redeploy"
 
+## Disclamer
+This was made as a fun project
+
 ## To-Do
 - Redirect Paths
 - Delays
+- Embeds support
+- Client Cashing
